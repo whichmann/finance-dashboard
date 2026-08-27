@@ -5,7 +5,8 @@ import { z } from "zod";
 import { revalidatePath } from "next/cache";
 import { redirect } from "next/navigation";
 
-const sql = postgres(process.env.POSTGRES_URL!, { ssl: "require" });
+const sql = postgres(process.env.STORAGE_POSTGRES_URL!, { ssl: "require" });
+
 export type State = {
   errors?: {
     customerId?: string[];
