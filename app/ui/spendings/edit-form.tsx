@@ -25,7 +25,7 @@ export default function EditInvoiceForm({
   
   return (
     <form action={formAction}>
-      <div className="rounded-md bg-gray-50 p-4 md:p-6">
+      <div className="rounded-md bg-surface-muted p-4 md:p-6">
         {/* Customer Name */}
         <div className="mb-4">
           <label htmlFor="customer" className="mb-2 block text-sm font-medium">
@@ -36,7 +36,7 @@ export default function EditInvoiceForm({
               aria-describedby="customer-error"
               id="customer"
               name="customerId"
-              className="peer block w-full cursor-pointer rounded-md border border-gray-200 py-2 pl-10 text-sm outline-2 placeholder:text-gray-500"
+              className="peer block w-full cursor-pointer rounded-md border border-border bg-surface py-2 pl-10 text-sm outline-2 placeholder:text-muted"
               defaultValue={invoice.customer_id}>
               <option value="" disabled>
                 Select a customer
@@ -47,12 +47,12 @@ export default function EditInvoiceForm({
                 </option>
               ))}
             </select>
-            <UserCircleIcon className="pointer-events-none absolute left-3 top-1/2 h-[18px] w-[18px] -translate-y-1/2 text-gray-500" />
+            <UserCircleIcon className="pointer-events-none absolute left-3 top-1/2 h-[18px] w-[18px] -translate-y-1/2 text-muted" />
           </div>
           <div id="customer-error" aria-live="polite" aria-atomic="true">
             {state.errors?.customerId &&
               state.errors.customerId.map((error: string) => (
-                <p className="mt-2 text-sm text-red-500" key={error}>
+                <p className="mt-2 text-sm text-danger" key={error}>
                   {error}
                 </p>
               ))}
@@ -74,14 +74,14 @@ export default function EditInvoiceForm({
                 step="0.01"
                 defaultValue={invoice.amount}
                 placeholder="Enter USD amount"
-                className="peer block w-full rounded-md border border-gray-200 py-2 pl-10 text-sm outline-2 placeholder:text-gray-500"
+                className="peer block w-full rounded-md border border-border bg-surface py-2 pl-10 text-sm outline-2 placeholder:text-muted"
               />
-              <CurrencyDollarIcon className="pointer-events-none absolute left-3 top-1/2 h-[18px] w-[18px] -translate-y-1/2 text-gray-500 peer-focus:text-gray-900" />
+              <CurrencyDollarIcon className="pointer-events-none absolute left-3 top-1/2 h-[18px] w-[18px] -translate-y-1/2 text-muted peer-focus:text-foreground" />
             </div>
             <div id="amount-error" aria-live="polite" aria-atomic="true">
               {state.errors?.amount &&
                 state.errors.amount.map((error: string) => (
-                  <p className="mt-2 text-sm text-red-500" key={error}>
+                  <p className="mt-2 text-sm text-danger" key={error}>
                     {error}
                   </p>
                 ))}
@@ -94,7 +94,7 @@ export default function EditInvoiceForm({
           <legend className="mb-2 block text-sm font-medium">
             Set the invoice status
           </legend>
-          <div className="rounded-md border border-gray-200 bg-white px-[14px] py-3">
+          <div className="rounded-md border border-border bg-surface px-[14px] py-3">
             <div className="flex gap-4">
               <div className="flex items-center">
                 <input
@@ -104,11 +104,11 @@ export default function EditInvoiceForm({
                   type="radio"
                   value="pending"
                   defaultChecked={invoice.status === "pending"}
-                  className="h-4 w-4 cursor-pointer border-gray-300 bg-gray-100 text-gray-600 focus:ring-2"
+                  className="h-4 w-4 cursor-pointer border-border bg-status-pending text-muted focus:ring-2"
                 />
                 <label
                   htmlFor="pending"
-                  className="ml-2 flex cursor-pointer items-center gap-1.5 rounded-full bg-gray-100 px-3 py-1.5 text-xs font-medium text-gray-600">
+                  className="ml-2 flex cursor-pointer items-center gap-1.5 rounded-full bg-status-pending px-3 py-1.5 text-xs font-medium text-muted">
                   Pending <ClockIcon className="h-4 w-4" />
                 </label>
               </div>
@@ -120,11 +120,11 @@ export default function EditInvoiceForm({
                   type="radio"
                   value="paid"
                   defaultChecked={invoice.status === "paid"}
-                  className="h-4 w-4 cursor-pointer border-gray-300 bg-gray-100 text-gray-600 focus:ring-2"
+                  className="h-4 w-4 cursor-pointer border-border bg-status-pending text-muted focus:ring-2"
                 />
                 <label
                   htmlFor="paid"
-                  className="ml-2 flex cursor-pointer items-center gap-1.5 rounded-full bg-green-500 px-3 py-1.5 text-xs font-medium text-white">
+                  className="ml-2 flex cursor-pointer items-center gap-1.5 rounded-full bg-status-paid px-3 py-1.5 text-xs font-medium text-on-primary">
                   Paid <CheckIcon className="h-4 w-4" />
                 </label>
               </div>
@@ -132,7 +132,7 @@ export default function EditInvoiceForm({
             <div id="status-error" aria-live="polite" aria-atomic="true">
               {state.errors?.status &&
                 state.errors.status.map((error: string) => (
-                  <p className="mt-2 text-sm text-red-500" key={error}>
+                  <p className="mt-2 text-sm text-danger" key={error}>
                     {error}
                   </p>
                 ))}
@@ -141,14 +141,14 @@ export default function EditInvoiceForm({
         </fieldset>
         <div id="form-error" aria-live="polite" aria-atomic="true">
           {state.message && (
-            <p className="mt-2 text-sm text-red-500">{state.message}</p>
+            <p className="mt-2 text-sm text-danger">{state.message}</p>
           )}
         </div>
       </div>
       <div className="mt-6 flex justify-end gap-4">
         <Link
           href="/dashboard/spendings"
-          className="flex h-10 items-center rounded-lg bg-gray-100 px-4 text-sm font-medium text-gray-600 transition-colors hover:bg-gray-200">
+          className="flex h-10 items-center rounded-lg bg-surface-muted px-4 text-sm font-medium text-muted transition-colors hover:bg-border">
           Cancel
         </Link>
         <Button type="submit">Edit Invoice</Button>
