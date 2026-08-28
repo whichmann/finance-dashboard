@@ -1,62 +1,8 @@
+@import './design-tokens.css';
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
-:root {
-  --color-background: 255 255 255;
-  --color-surface: 255 255 255;
-  --color-surface-muted: 249 250 251;
-  --color-foreground: 17 24 39;
-  --color-muted: 107 114 128;
-  --color-subtle: 156 163 175;
-  --color-border: 229 231 235;
-  --color-primary: 47 111 235;
-  --color-primary-hover: 37 137 254;
-  --color-primary-active: 0 112 243;
-  --color-on-primary: 255 255 255;
-  --color-status-pending: 243 244 246;
-  --color-status-paid: 34 197 94;
-  --color-danger: 239 68 68;
-  --color-skeleton: 229 231 235;
-}
-
-[data-theme='dark'] {
-  --color-background: 17 24 39;
-  --color-surface: 31 41 55;
-  --color-surface-muted: 55 65 81;
-  --color-foreground: 243 244 246;
-  --color-muted: 156 163 175;
-  --color-subtle: 107 114 128;
-  --color-border: 75 85 99;
-  --color-primary: 96 165 250;
-  --color-primary-hover: 147 197 253;
-  --color-primary-active: 59 130 246;
-  --color-on-primary: 17 24 39;
-  --color-status-pending: 75 85 99;
-  --color-status-paid: 34 197 94;
-  --color-danger: 248 113 113;
-  --color-skeleton: 75 85 99;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root:not([data-theme='light']) {
-    --color-background: 17 24 39;
-    --color-surface: 31 41 55;
-    --color-surface-muted: 55 65 81;
-    --color-foreground: 243 244 246;
-    --color-muted: 156 163 175;
-    --color-subtle: 107 114 128;
-    --color-border: 75 85 99;
-    --color-primary: 96 165 250;
-    --color-primary-hover: 147 197 253;
-    --color-primary-active: 59 130 246;
-    --color-on-primary: 17 24 39;
-    --color-status-pending: 75 85 99;
-    --color-status-paid: 34 197 94;
-    --color-danger: 248 113 113;
-    --color-skeleton: 75 85 99;
-  }
-}
 
 @layer base {
   html {
