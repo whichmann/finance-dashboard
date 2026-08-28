@@ -83,6 +83,7 @@ export function ThemeProvider({ children }: { children: React.ReactNode }) {
       nextTheme === "system" ? getSystemTheme() : nextTheme;
 
     window.localStorage.setItem(THEME_STORAGE_KEY, nextTheme);
+    document.cookie = `${THEME_STORAGE_KEY}=${nextTheme}; Path=/; SameSite=Lax`;
     setThemeState(nextTheme);
     setResolvedTheme(nextResolvedTheme);
     applyTheme(nextResolvedTheme);

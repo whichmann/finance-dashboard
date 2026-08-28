@@ -12,6 +12,10 @@
     console.warn("Unable to read the stored theme preference.", error);
   }
 
+  if (theme === "system" && document.documentElement.dataset.theme) {
+    return;
+  }
+
   var resolvedTheme =
     theme === "system"
       ? window.matchMedia("(prefers-color-scheme: dark)").matches
